@@ -1,0 +1,18 @@
+<div class="reminder-item">
+  <div class="reminder-info">
+    <h3>{{ reminder.title }}</h3>
+    <p>{{ reminder.description }}</p>
+    <p><strong>Due:</strong> {{ reminder.dueDate | date : "short" }}</p>
+    <p><strong>Priority:</strong> {{ reminder.priority }}</p>
+    <div *ngIf="reminder.isCompleted">
+      <span class="completed">Completed</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button (click)="onComplete()">
+      {{ reminder.isCompleted ? "Uncomplete" : "Complete" }}
+    </button>
+    <button (click)="onDelete()">Delete</button>
+  </div>
+</div>

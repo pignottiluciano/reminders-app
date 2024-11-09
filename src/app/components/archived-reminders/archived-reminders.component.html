@@ -1,0 +1,8 @@
+<div *ngFor="let reminder of archivedReminders()">
+  <app-reminder-item
+    [reminder]="reminder"
+    (complete)="changeCompleteReminder(reminder.id)"
+    (delete)="deleteReminder(reminder.id)"
+  >
+  </app-reminder-item>
+</div>

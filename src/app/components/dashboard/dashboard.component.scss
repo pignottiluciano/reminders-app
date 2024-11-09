@@ -1,0 +1,22 @@
+.dashboard-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+    display: grid;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}

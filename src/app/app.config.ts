@@ -1,9 +1,32 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { importProvidersFrom, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddReminderComponent } from './components/add-reminder/add-reminder.component';
+import { ReminderItemComponent } from './components/reminder-item/reminder-item.component';
 
-import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
+import { appRoutes } from './app.routes';
 
-export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+export const appConfig = {
+  providers: [
+    importProvidersFrom(
+      ReactiveFormsModule, 
+      CommonModule,        
+      RouterModule.forRoot(appRoutes)
+    )
+  ],
+  declarations: [
+    DashboardComponent,
+    AddReminderComponent,
+    ReminderItemComponent
+  ],
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    CommonModule,
+    DashboardComponent,
+    AddReminderComponent,
+    ReminderItemComponent
+  ]
 };

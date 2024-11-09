@@ -1,0 +1,19 @@
+<form [formGroup]="reminderForm" (ngSubmit)="onSubmit()">
+  <label>Title</label>
+  <input formControlName="title" type="text" />
+
+  <label>Description</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Due Date</label>
+  <input formControlName="dueDate" type="datetime-local" />
+
+  <label>Priority</label>
+  <select formControlName="priority">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+
+  <button type="submit">Add Reminder</button>
+</form>
